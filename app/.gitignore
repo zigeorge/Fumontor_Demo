@@ -1,0 +1,8 @@
+/build
+app-release.apk
+app.iml
+Fumontor_Demo.iml
+/.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
