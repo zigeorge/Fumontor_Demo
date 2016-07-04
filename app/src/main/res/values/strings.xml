@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Fumontor</string>
+
+    <string name="get_started">Get Started</string>
+    <string name="login_facebook">Continue with Facebook</string>
+
+    <string name="facebook_app_id">1056043037766022</string>
 </resources>

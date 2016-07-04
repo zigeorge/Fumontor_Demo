@@ -29,4 +29,13 @@
         android:layout_centerInParent="true"
         android:src="@drawable/fumontor_logo" />
 
+    <Button
+        android:id="@+id/btnGetStarted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dim20"
+        android:text="@string/get_started"/>
+
 </RelativeLayout>

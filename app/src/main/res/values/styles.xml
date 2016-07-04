@@ -7,6 +7,13 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:buttonStyle">@style/FumontorButton</item>
+    </style>
+
+    <style name="FumontorButton" parent="@android:style/Widget.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/dimTex18</item>
+        <item name="android:background">@drawable/btn_default</item><!-- only way to change this is to change the src image -->
     </style>
 
 </resources>
