@@ -4,8 +4,16 @@ import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.os.Bundle;
 import android.util.Log;
 
+import com.facebook.AccessToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -14,13 +22,13 @@ import java.security.NoSuchAlgorithmException;
  */
 public class ApplicationUtility {
 
-    /*public static Bundle getFacebookData(JSONObject object, AccessToken accessToken) {
+    public static Bundle getFacebookData(JSONObject object, AccessToken accessToken) {
 
         try {
             Bundle bundle = new Bundle();
             String id = object.getString("id");
-            String accesstokenUrl = StaticData.FACEBOOK_ACCESSTOKEN_URL + accessToken.getToken() + "&format=json";
-            Log.e(StaticData.ACCESSTOKEN_URL, accesstokenUrl);
+            String accesstokenUrl = accessToken.getToken();
+            Log.e(StaticData.ACCESSTOKEN, accesstokenUrl);
             try {
                 URL profile_pic = new URL("https://graph.facebook.com/" + id + "/picture?width=200&height=200");
                 Log.e("profile_pic", profile_pic + "");
@@ -41,14 +49,14 @@ public class ApplicationUtility {
                 bundle.putString(StaticData.USER_EMAIL, object.getString(StaticData.USER_EMAIL));
             if (object.has(StaticData.USER_GENDER))
                 bundle.putString(StaticData.USER_GENDER, object.getString(StaticData.USER_GENDER));
-            bundle.putString(StaticData.ACCESSTOKEN_URL, accesstokenUrl);
+            bundle.putString(StaticData.ACCESSTOKEN, accesstokenUrl);
             return bundle;
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return null;
     }
-
+/*
     public static Bundle getGoogleAuthData(GoogleSignInAccount account) {
         Bundle bundle = new Bundle();
         bundle.putString(StaticData.USER_IMAGE, account.getPhotoUrl().toString());
@@ -57,7 +65,7 @@ public class ApplicationUtility {
         bundle.putString(StaticData.USER_MIDDLE_NAME, "");
         bundle.putString(StaticData.USER_LAST_NAME, getSeperatedName(account.getDisplayName(), false));
         bundle.putString(StaticData.USER_EMAIL, account.getEmail());
-        bundle.putString(StaticData.ACCESSTOKEN_URL, account.getIdToken());
+        bundle.putString(StaticData.ACCESSTOKEN, account.getIdToken());
         return bundle;
     }
 
@@ -102,17 +110,17 @@ public class ApplicationUtility {
         return key;
     }
 
-    /*public static String getSignUpJSONParam(Bundle bundle, String authType, String fcmToken) {
+    public static String getSignUpJSONParam(Bundle bundle, String authType) {
         String user_id = bundle.getString(StaticData.USER_ID);
         String email = bundle.getString(StaticData.USER_EMAIL);
         String first_name = bundle.getString(StaticData.USER_FIRST_NAME);
         String last_name = bundle.getString(StaticData.USER_LAST_NAME);
         String jSONParam = "{\"" + StaticData.USER_ID + "\":\"" + user_id + "\",\"auth_type\":\"" + authType + "\",\"" + StaticData.USER_EMAIL + "\":\"" + email + "\",\"" +
                 StaticData.USER_FIRST_NAME + "\":\"" + first_name + "\",\"" + StaticData.USER_LAST_NAME + "\":\"" + last_name + "\",\"" + StaticData.USER_ADDRESS + "\":\"\",\"" +
-                StaticData.USER_CONTACT + "\":\"\",\"" + StaticData.REG_ID + "\":\"" + fcmToken + "\"}";
+                StaticData.USER_CONTACT + "\"}";
         return jSONParam;
     }
-
+/*
     public static Bundle getResponseBundle(SignUpResponse response) {
         Bundle bundle = new Bundle();
         User aUser = response.getUser();
